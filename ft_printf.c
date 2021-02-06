@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:43:00 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/06 12:07:16 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/06 14:12:15 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ int ft_check(char *s, va_list args)
             i = ft_check_flags(s, i, flags, args);
             if (ft_is_type(s[i]))
                 num += ft_conversion(s[i], flags, args);
+            else if (s[i])
+                num += ft_putchar(s[i]);
         }
         else if (s[i] != '%')
             num += ft_putchar(s[i]);
