@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:43:00 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/05 16:50:54 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/06 12:07:16 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ t_flags ft_init_flags(void)
 
     flags.width = 0;
     flags.type = 0;
+    flags.precision = 0;
     flags.zero = 0;
     flags.dot = -1;
     flags.star = 0;
@@ -25,14 +26,32 @@ t_flags ft_init_flags(void)
     return (flags);
 }
 
-int ft_check_flag(const char *s, int i, t_flags *flags, va_list args)
+int ft_check_flags(const char *s, int i, t_flags *flags, va_list args)
 {
     while (s[i])
     {
         if (!ft_isdigit(s[i]) && !ft_is_type(s[i]) && !ft_is_flags(s[i]))
             break;
-        
+        if (s[i] == '0')
+            flags->zero = 1;
+        else if (s[i] == '-')
+            flags->minus = 1;
+        if (ft_isdigit(s[i]) && flags->dot == 0)
+            flags->width = s[i];
+        else if (ft_isdigit(s[i]) && flags->dot == 1)
+            flags->precision = s[i];
+        if (s[i] == '*')
+            flags->star = 1;
+        if (s[i] == '.')
+            flags->dot = 1;
+        if (ft_is_type(s[i]))
+        {
+            flags->type = s[i];
+            break;
+        }
+        i++;
     }
+    return (i);
 }
 
 int ft_check(char *s, va_list args)
@@ -48,10 +67,9 @@ int ft_check(char *s, va_list args)
         *flags = ft_init_flags();
         if (s[i] == '%' && s[i + 1])
         {
-            //check flags before
+            i = ft_check_flags(s, i, flags, args);
             if (ft_is_type(s[i]))
-                num += ft_convert();
-            
+                num += ft_conversion(s[i], flags, args);
         }
         else if (s[i] != '%')
             num += ft_putchar(s[i]);
