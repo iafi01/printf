@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 18:59:38 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/06 16:02:13 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/07 12:52:52 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
-void			ft_putchar(char c);
-void			ft_putstr(char *s);
+int			ft_putchar(int c);
+int			ft_putstr(char *s);
 size_t			ft_strlen(const char *str);
 int				ft_isascii(int c);
 int				ft_isprint(int c);

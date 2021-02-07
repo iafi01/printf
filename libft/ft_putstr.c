@@ -6,13 +6,13 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 15:16:34 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/06 16:01:02 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/07 12:54:23 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
 	size_t	i;
 
@@ -24,4 +24,5 @@ void	ft_putstr(char *s)
 		write(1, &s[i], 1);
 		i++;
 	}
+	return (ft_strlen(s));
 }
