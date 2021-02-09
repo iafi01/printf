@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:46:07 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/09 10:10:01 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/09 12:08:10 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int             ft_is_type(int c);
 int             ft_check(char *s, va_list args);
 char            *ft_baseall(unsigned long long n, int base, int up);
 int             ft_width(int width, int leng, int zero);
+char			*ft_u_itoa(unsigned int n);
 /*int     ft_check_flags(const char *s, int i, t_flags *flags, va_list args);
 int     ft_conversion_char(va_arg(args, int), flags);
 int     ft_conversion_string(va_arg(args, char*), flags);
