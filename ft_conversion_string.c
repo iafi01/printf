@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:11 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/07 15:23:18 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/09 15:57:12 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int ft_conversion_string(char *str, t_flags flags)
     int len;
     int width;
 
+    s = NULL;
     width = flags.width;
+    len = ft_strlcpy(s, str, flags.precision);
     if (flags.minus == 1)
         ft_putstr(s);
-    s = ft_strlcpy(s, str, flags.precision);
-    len = ft_strlen(s);
     while (width - len > 0)
     {
         ft_putchar(' ');
