@@ -6,28 +6,22 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:46:07 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/09 15:59:47 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/10 12:27:50 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# define hex 0123456789abcdef
-# define HEX 0123456789ABCDEF
-
-# include <stdarg.h>
-# include <stdlib.h>
 # include "libft/libft.h"
+# include <stdarg.h>
 
 typedef struct s_flags
 {
-    /*Integers*/
-    int printed;
     int width;
     int precision;
     int type;
-    /*Bools*/
     int zero;
     int dot;
     int star;
@@ -43,11 +37,11 @@ int     ft_width(int width, int leng, int zero);
 char	*ft_u_itoa(unsigned int n);
 int     ft_conversion(int c, t_flags flags, va_list args);
 int     ft_check_flags(const char *s, int i, t_flags *flags, va_list args);
-int     ft_conversion_char(va_arg(args, int), flags);
-int     ft_conversion_string(va_arg(args, char*), flags);
-int     ft_conversion_pointer(va_arg(args, unsigned long long), flags);
-int     ft_conversion_hexa(va_arg(args, unsigned int), 1, flags);
-int     ft_conversion_integer(va_arg(args, int), flags);
-int     ft_conversion_unsigned(va_arg(args, unsigned int), flags);
-int     ft_conversion_percent(flags);
+int     ft_conversion_char(int c, t_flags flags);
+int     ft_conversion_string(char *str, t_flags flags);
+int     ft_conversion_pointer(unsigned long long c, t_flags flags);
+int     ft_conversion_hexa(unsigned int c, int cap, t_flags flags);
+int     ft_conversion_integer(int c, t_flags flags);
+int     ft_conversion_unsigned(int c, t_flags flags);
+int     ft_conversion_percent(t_flags flags);
 #endif
