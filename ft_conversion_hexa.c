@@ -6,13 +6,13 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:11 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/08 16:05:23 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/11 11:50:10 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 //teoricamente gestisce lo zero e la width attraverso la ft_width, il meno attraverso i due if e le low/capital letter con ft_baseall(cap)
-int ft_conversion_hexa(unsigned int c, int cap, t_flags flags)
+int ft_conversion_hexa(unsigned int c, int cap, t_flags flags, va_list args)
 {
     int len;
     char *hexa;

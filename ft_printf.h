@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:46:07 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/11 10:31:40 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/11 11:50:40 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ int     ft_width(int width, int leng, int zero);
 char	*ft_u_itoa(unsigned int n);
 int     ft_conversion(int c, t_flags flags, va_list args);
 int     ft_check_flags(const char *s, int i, t_flags *flags);
-int     ft_conversion_char(int c, t_flags flags);
-int     ft_conversion_string(char *str, t_flags flags);
-int     ft_conversion_pointer(unsigned long long c, t_flags flags);
-int     ft_conversion_hexa(unsigned int c, int cap, t_flags flags);
-int     ft_conversion_integer(int c, t_flags flags);
-int     ft_conversion_unsigned(int c, t_flags flags);
+int     ft_conversion_char(int c, t_flags flags, va_list args);
+int     ft_conversion_string(char *str, t_flags flags, va_list args);
+int     ft_conversion_pointer(unsigned long long c, t_flags flags, va_list args);
+int     ft_conversion_hexa(unsigned int c, int cap, t_flags flags, va_list args);
+int     ft_conversion_integer(int c, t_flags flags, va_list args);
+int     ft_conversion_unsigned(int c, t_flags flags, va_list args);
 int     ft_conversion_percent(t_flags flags);
 #endif

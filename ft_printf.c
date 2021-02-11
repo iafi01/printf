@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:43:00 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/11 11:03:45 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/11 11:45:36 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ int ft_check_flags(const char *s, int i, t_flags *flags)
     {
         if (!ft_isdigit(s[i]) && !ft_is_type(s[i]) && !ft_is_flags(s[i]))
             break;
+        if (ft_is_type(s[i]))
+        {
+            flags->type = s[i];
+            break;
+        }
         if (s[i] == '0')
             flags->zero = 1;
         else if (s[i] == '-')
@@ -44,11 +49,6 @@ int ft_check_flags(const char *s, int i, t_flags *flags)
             flags->star = 1;
         if (s[i] == '.')
             flags->dot = 1;
-        if (ft_is_type(s[i]))
-        {
-            flags->type = s[i];
-            break;
-        }
         i++;
     }
     return (i);

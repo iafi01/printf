@@ -6,13 +6,13 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:11 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/09 14:57:00 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/11 11:49:53 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_conversion_pointer(unsigned long long c, t_flags flags)
+int ft_conversion_pointer(unsigned long long c, t_flags flags, va_list args)
 {
     char *pointer;
     char count;
