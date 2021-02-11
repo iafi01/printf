@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:43:00 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/10 12:46:44 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/11 11:03:45 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_flags ft_init_flags(void)
     flags.type = 0;
     flags.precision = 0;
     flags.zero = 0;
-    flags.dot = -1;
+    flags.dot = 0;
     flags.star = 0;
     flags.minus = 0;
     return (flags);
@@ -67,7 +67,7 @@ int ft_check(char *s, va_list args)
         flags = ft_init_flags();
         if (s[i] == '%' && s[i + 1])
         {
-            i = ft_check_flags(s, i, &flags);
+            i = ft_check_flags(s, ++i, &flags);
             if (ft_is_type(s[i]))
                 num += ft_conversion(s[i], flags, args);
             else if (s[i])
