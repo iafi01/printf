@@ -6,7 +6,7 @@
 #    By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/15 10:39:22 by liafigli          #+#    #+#              #
-#    Updated: 2021/02/11 09:17:23 by liafigli         ###   ########.fr        #
+#    Updated: 2021/02/11 09:25:03 by liafigli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ all: $(NAME)
 $(NAME): $(FILESS)
 	$(MAKE) -C ./libft
 	cp libft/libft.a $(NAME)
-	$(CC) $(FLAGS) $(INCLUDES) $(SRCS)
+	gcc $(FLAGS) $(INCLUDE) $(SRCS)
 	ar -rc $(NAME) $^
 
 .c.o:
