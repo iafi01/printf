@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 15:16:34 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/07 12:54:23 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/11 09:20:17 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_putstr(char *s)
 
 	i = 0;
 	if (!s)
-		return ;
+		return (0);
 	while (s[i])
 	{
 		write(1, &s[i], 1);
