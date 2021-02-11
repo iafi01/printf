@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:00 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/05 13:40:04 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/11 10:32:01 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int     ft_is_type(int c)
     (c == 'd') || (c == 'x') || (c == 'u') || (c == 'X'));
 }
 
-int     ft_is_flag(int c)
+int     ft_is_flags(int c)
 {
     return ((c == '0') || (c == '*') || (c == '.') || (c == '-'));
 }
