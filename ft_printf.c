@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:43:00 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/11 11:45:36 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/12 16:56:22 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,31 +26,27 @@ t_flags ft_init_flags(void)
     return (flags);
 }
 
-int ft_check_flags(const char *s, int i, t_flags *flags)
+int ft_check_flags(const char *s, int i, t_flags *flags, va_list args)
 {
-    while (s[i])
+    while (s[i] != '.' && ft_is_type(s[i]))
     {
         if (!ft_isdigit(s[i]) && !ft_is_type(s[i]) && !ft_is_flags(s[i]))
             break;
-        if (ft_is_type(s[i]))
-        {
-            flags->type = s[i];
-            break;
-        }
-        if (s[i] == '0')
+        if (s[i] == '0' && flags->width == 0 && flags->minus == 0)
             flags->zero = 1;
-        else if (s[i] == '-')
-            flags->minus = 1;
-        if (ft_isdigit(s[i]) && flags->dot == 0)
-            flags->width = s[i];
-        else if (ft_isdigit(s[i]) && flags->dot == 1)
-            flags->precision = s[i];
+        if (s[i] == '-')
+            *flags = ft_flag_minus(*flags);
         if (s[i] == '*')
-            flags->star = 1;
-        if (s[i] == '.')
-            flags->dot = 1;
+            flags->width = va_arg(args, int);
+        if (ft_isdigit(s[i]))
+            flags->width = (flags->width * 10) + (s[i] - '0');
         i++;
     }
+    if (s[i] == '.')
+        ft_flag_dot(s, ++i, *flags, args);
+    if (ft_is_type(s[i]))
+        flags->type = s[i];
+
     return (i);
 }
 
@@ -67,7 +63,7 @@ int ft_check(char *s, va_list args)
         flags = ft_init_flags();
         if (s[i] == '%' && s[i + 1])
         {
-            i = ft_check_flags(s, ++i, &flags);
+            i = ft_check_flags(s, ++i, &flags, args);
             if (ft_is_type(s[i]))
                 num += ft_conversion(s[i], flags, args);
             else if (s[i])

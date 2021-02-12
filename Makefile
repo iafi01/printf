@@ -6,7 +6,7 @@
 #    By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/15 10:39:22 by liafigli          #+#    #+#              #
-#    Updated: 2021/02/11 09:25:03 by liafigli         ###   ########.fr        #
+#    Updated: 2021/02/12 16:42:09 by liafigli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ FILES	=	ft_baseall.c ft_conversion_char.c ft_conversion_hexa.c \
 			ft_conversion_integer.c ft_conversion_percent.c \
 			ft_conversion_pointer.c ft_conversion_string.c \
 			ft_conversion_unsigned.c ft_converts.c \
-			ft_printf.c ft_width.c ft_u_itoa.c \
+			ft_printf.c ft_width.c ft_u_itoa.c ft_flags \
 			
 FILESS	=	 $(FILES:.c=.o)
 

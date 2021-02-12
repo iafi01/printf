@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:00 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/11 11:51:01 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/11 13:01:30 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,19 @@ int ft_conversion(int c, t_flags flags, va_list args)
 
     num = 0;
     if (c == 'c')
-        num += ft_conversion_char(va_arg(args, int), flags, args);
+        num += ft_conversion_char(va_arg(args, int), flags);
     else if (c == 's')
-        num += ft_conversion_string(va_arg(args, char*), flags, args);
+        num += ft_conversion_string(va_arg(args, char*), flags);
     else if (c == 'p')
-        num += ft_conversion_pointer(va_arg(args, unsigned long long), flags, args);
+        num += ft_conversion_pointer(va_arg(args, unsigned long long), flags);
     else if (c == 'x')
-        num += ft_conversion_hexa(va_arg(args, unsigned int), 1, flags, args);
+        num += ft_conversion_hexa(va_arg(args, unsigned int), 1, flags);
     else if (c == 'X')
-        num += ft_conversion_hexa(va_arg(args, unsigned int), 0, flags, args);
+        num += ft_conversion_hexa(va_arg(args, unsigned int), 0, flags);
     else if (c == 'd' || c == 'i')
-        num += ft_conversion_integer(va_arg(args, int), flags, args);
+        num += ft_conversion_integer(va_arg(args, int), flags);
     else if (c == 'u')
-        num += ft_conversion_unsigned(va_arg(args, unsigned int), flags, args);
+        num += ft_conversion_unsigned(va_arg(args, unsigned int), flags);
     else if (c == '%')
         num += ft_conversion_percent(flags);
     return (num);

@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion_integer.c                            :+:      :+:    :+:   */
+/*   ft_flags.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/05 13:39:11 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/11 13:02:05 by liafigli         ###   ########.fr       */
+/*   Created: 2021/02/12 11:26:06 by liafigli          #+#    #+#             */
+/*   Updated: 2021/02/12 16:55:51 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_conversion_integer(int c, t_flags flags)
+t_flags ft_flag_minus(t_flags flags)
 {
-    int count;
-    char *str;
-    int len;
-    //use itoa and convert it for spaces
-    str = ft_itoa(c);
-    len = ft_strlen(str);
-    count = 0;
-    if (flags.minus == 1)
-        ft_putstr(str);
-    while (flags.width - len > 0)
+    flags.minus = 1;
+    flags.zero = 0;
+    return (flags);
+}
+
+t_flags ft_flag_dot(const char *s, int i, t_flags flags, va_list args)
+{
+    flags.dot = 1;
+    while (!ft_is_type(s[i]))
     {
-        ft_putchar(' ');
-        flags.width--;
-        count++;
+        if (s[i] == '*')
+            flags.precision = va_arg(args, int);
+        if (ft_isdigit(s[i]))
+            flags.precision = s[i];
+        i++;
     }
-    if (flags.minus == 0)
-        ft_putstr(str);
-    return (count + len);
+    return (flags);
 }
