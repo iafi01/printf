@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:46:07 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/12 16:56:05 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/13 15:02:36 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int     ft_printf(const char *fix, ...);
 int     ft_is_flags(int c);
 int     ft_is_type(int c);
 t_flags ft_flag_minus(t_flags flags);
-t_flags ft_flag_dot(const char *s, int i, t_flags flags, va_list args);
+int     ft_flag_dot(const char *s, int i, t_flags *flags, va_list args);
 int     ft_check_flags(const char *s, int i, t_flags *flags, va_list args);
 int     ft_check(char *s, va_list args);
 char    *ft_baseall(unsigned long long n, int base, int up);

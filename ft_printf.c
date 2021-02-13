@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:43:00 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/13 14:35:31 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/13 15:27:51 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,7 @@ int ft_check_flags(const char *s, int i, t_flags *flags, va_list args)
         i++;
     }
     if (s[i] == '.')
-        ft_flag_dot(s, ++i, *flags, args); //???
-        //se flag dot é andato avanti non se ne accorge ft_is_type .7s é un esempio
-        //perché ft_is_type leggerá 7  che nel ft_check fallisce e stampa tutto dopo il punto
-        //anchee se metto ft_is_type flag->type dentro flag_dot in ft_check non saprá la i dov'era
+        i = ft_flag_dot(s, ++i, flags, args);
     if (ft_is_type(s[i]))
         flags->type = s[i];
     return (i);
