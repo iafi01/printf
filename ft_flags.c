@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 11:26:06 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/12 16:55:51 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/13 10:20:13 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_flags ft_flag_dot(const char *s, int i, t_flags flags, va_list args)
         if (s[i] == '*')
             flags.precision = va_arg(args, int);
         if (ft_isdigit(s[i]))
-            flags.precision = s[i];
+            flags.precision = (flags.precision * 10) + (s[i] - '0');
         i++;
     }
     return (flags);

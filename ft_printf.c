@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:43:00 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/12 16:56:22 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/13 11:19:37 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_flags ft_init_flags(void)
 
 int ft_check_flags(const char *s, int i, t_flags *flags, va_list args)
 {
-    while (s[i] != '.' && ft_is_type(s[i]))
+    while (s[i] != '.' && !ft_is_type(s[i]))
     {
         if (!ft_isdigit(s[i]) && !ft_is_type(s[i]) && !ft_is_flags(s[i]))
             break;
@@ -46,7 +46,6 @@ int ft_check_flags(const char *s, int i, t_flags *flags, va_list args)
         ft_flag_dot(s, ++i, *flags, args);
     if (ft_is_type(s[i]))
         flags->type = s[i];
-
     return (i);
 }
 
