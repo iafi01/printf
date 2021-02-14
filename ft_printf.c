@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:43:00 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/13 15:27:51 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/14 12:05:24 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@ t_flags ft_init_flags(void)
 
     flags.width = 0;
     flags.type = 0;
-    flags.precision = 0;
+    flags.precision = -1;
     flags.zero = 0;
-    flags.dot = 0;
     flags.star = 0;
     flags.minus = 0;
     return (flags);

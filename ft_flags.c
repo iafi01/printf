@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 11:26:06 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/13 16:03:30 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/14 12:05:33 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_flags ft_flag_minus(t_flags flags)
 
 int ft_flag_dot(const char *s, int i, t_flags *flags, va_list args)
 {
-    flags->dot = 1;
+    flags->precision = 0;
     while (!ft_is_type(s[i]))
     {
         if (s[i] == '*')
