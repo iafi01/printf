@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:11 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/14 12:10:55 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/14 16:38:55 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int ft_conversion_string(char *str, t_flags flags)
     char *s;
     int len;
 
-    if (str == NULL || str == 0)
+    if (str == NULL)
 		str = ft_strdup("(null)");
     s = ft_strdup(str);
     if (flags.precision == 0)

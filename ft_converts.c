@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:00 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/13 10:55:26 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/14 15:00:25 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int ft_conversion(int c, t_flags flags, va_list args)
     else if (c == 'p')
         num += ft_conversion_pointer(va_arg(args, unsigned long long), flags);
     else if (c == 'x')
-        num += ft_conversion_hexa(va_arg(args, unsigned int), 1, flags);
-    else if (c == 'X')
         num += ft_conversion_hexa(va_arg(args, unsigned int), 0, flags);
+    else if (c == 'X')
+        num += ft_conversion_hexa(va_arg(args, unsigned int), 1, flags);
     else if (c == 'd' || c == 'i')
         num += ft_conversion_integer(va_arg(args, int), flags);
     else if (c == 'u')
