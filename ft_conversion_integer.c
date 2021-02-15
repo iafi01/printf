@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:11 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/15 16:17:42 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/15 18:02:30 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,52 @@ int ft_conversion_integer(int c, t_flags flags)
     }
     return (count + len);
 }
+
+/*
+int ft_putzero(int c)
+{
+    int i;
+    char *str;
+
+    str =NULL;
+    i = 0;
+    while (c /= 10)
+    {
+        str[i] = '0';
+        i++;
+    }
+    ft_putstr(str);
+    return (i);
+}
+
+int ft_conversion_integer(int c, t_flags flags)
+{
+    int count;
+    char *str;
+    int neg;
+
+    if (c < 0)
+    {
+        neg = -1;
+        c *= -1;
+    }
+    str = ft_itoa(c);
+    count = 0;
+    if (flags.minus == 1)
+    {
+        if (neg == -1)
+            count += ft_putchar('-');
+        count += ft_putzero(c);
+        count += ft_putstr(str);
+    }
+    count = ft_width(flags.width, ft_strlen(str), 0);
+    if (flags.minus == 0)
+    {
+        if (neg == -1)
+            count += ft_putchar('-');
+        count += ft_putzero(c);
+        count += ft_putstr(str);
+    }
+    return (count);
+}
+*/
