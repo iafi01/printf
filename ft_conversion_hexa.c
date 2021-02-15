@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:11 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/14 16:43:17 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/15 11:04:06 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,9 @@ int ft_conversion_hexa(unsigned int c, int cap, t_flags flags)
     int len;
     char *hexa;
     int ret;
-    char *tmp;
+    //char *tmp;
 
     hexa = ft_baseall(c, 16, cap);
-    tmp = ft_strdup("0x");
-    hexa = ft_strjoin(tmp, hexa);
-    free(tmp);
     if (hexa[0] == '0')
         hexa = ft_strdup("");
     len = ft_strlen(hexa);
