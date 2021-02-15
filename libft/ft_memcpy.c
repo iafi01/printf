@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: liafigli <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 11:07:33 by liafigli          #+#    #+#             */
-/*   Updated: 2021/01/15 18:45:05 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/14 16:11:55 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	i = 0;
 	if (!dst && !src)
 		return (0);
-	while (i < n)
+	while (i < n && ((unsigned char *)src)[i])
 	{
 		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
 		i++;
