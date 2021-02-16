@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:11 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/16 16:36:57 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/16 16:44:32 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ int ft_conversion_integer(int c, t_flags flags)
     }
     if (flags.zero > 0)
     {
- /*       if (flags.width > flags.precision)
-           count = ft_width(flags.width, flags.precision, 0);*/
         if (flags.precision < len && flags.precision > 0)
             flags.zero = 0;
     }
