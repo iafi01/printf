@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:11 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/16 16:44:32 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/16 17:39:25 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int ft_conversion_integer(int c, t_flags flags)
     }
     if (flags.minus == 1)
     {
-        if (neg < 0 && flag == 0)
+        if (neg < 0)
         {
             ft_putchar('-');
             flag = 1;
@@ -47,32 +47,25 @@ int ft_conversion_integer(int c, t_flags flags)
         ft_putstr(str);
     }
     if (flags.zero > 0)
-    {
         if (flags.precision < len && flags.precision > 0)
             flags.zero = 0;
-    }
     if (flags.precision > len)
     {
-        if (flags.width <= flags.precision)
-        {
-            if (neg < 0 && flag == 0)
+            if (neg < 0 && flag == 0 && flags.width <= flags.precision)
             {
                 ft_putchar('-');
                 flag = 1;
             }
-        }
         count = ft_width(flags.width + neg, flags.precision, flags.width <= flags.precision );  
     }
     else if (flags.precision <= len)
     {
         if (flags.zero)
-        {
             if (neg < 0 && flag == 0)
             {
                 ft_putchar('-');
                 flag = 1;
             }
-        }
         count = ft_width(flags.width + neg, len + count, flags.zero);
     }
     if (flags.minus == 0)
