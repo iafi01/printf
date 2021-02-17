@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:11 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/17 15:50:52 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/17 15:57:46 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void ft_first(t_flags flags, t_int *i, char *str)
 {
     if (flags.minus == 1)
     {
-        if (i->neg < 0)
+        if (i->neg < 0 && i->flag == 0)
         {
             ft_putchar('-');
             i->flag = 1;
