@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:11 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/17 14:16:18 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/17 15:30:35 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void ft_first(t_flags flags, t_int *i, char *str)
 {
     if (flags.minus == 1)
     {
-        if (i->neg < 0 && ft_strncmp(str, "-2147483648", ft_strlen(str)))
+        if (i->neg < 0)
         {
             ft_putchar('-');
             i->flag = 1;
@@ -81,6 +81,8 @@ int ft_conversion_integer(int c, t_flags flags)
         c *= -1;
         i.neg = -1;
     }
+    if (c == -2147483648)
+        i.flag = 1;
     str = ft_itoa(c);
     i.len = ft_strlen(str);
     if (flags.precision == 0 && c == 0)
@@ -88,6 +90,7 @@ int ft_conversion_integer(int c, t_flags flags)
         str = ft_strdup("");
         return(ft_width(flags.width, 0, flags.zero));
     }
+    
     ft_first(flags, &i, str);
     if (flags.zero > 0)
         if (flags.precision < i.len && flags.precision > 0)

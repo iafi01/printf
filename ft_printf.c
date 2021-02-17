@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:43:00 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/17 14:06:25 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/17 14:40:43 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int ft_check_flags(const char *s, int i, t_flags *flags, va_list args)
             if (flags->width < 0)
             {
                 flags->width *= -1;
-                flags->minus = 1;
+                *flags = ft_flag_minus(*flags);
             }
         }
         if (ft_isdigit(s[i]))
