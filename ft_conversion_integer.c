@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:11 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/17 15:30:35 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/17 15:50:52 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,13 @@ int ft_conversion_integer(int c, t_flags flags)
     char *str;
     
     i = ft_init_int();
+    if (c == -2147483648)
+        i.flag = 1;
     if (c < 0)
     {
         c *= -1;
         i.neg = -1;
     }
-    if (c == -2147483648)
-        i.flag = 1;
     str = ft_itoa(c);
     i.len = ft_strlen(str);
     if (flags.precision == 0 && c == 0)
