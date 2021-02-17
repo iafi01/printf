@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion_char.c                               :+:      :+:    :+:   */
+/*   ft_lowercase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/05 13:39:11 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/17 17:26:31 by liafigli         ###   ########.fr       */
+/*   Created: 2021/02/17 11:39:44 by liafigli          #+#    #+#             */
+/*   Updated: 2021/02/17 17:25:50 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_conversion_char(int c, t_flags flags)
+char	*ft_lowercase(char *s)
 {
-	int	ret;
+	int	i;
 
-	ret = 0;
-	if (flags.minus == 1)
-		ft_putchar(c);
-	ft_width(flags.width, 1, 0);
-	if (flags.minus == 0)
-		ft_putchar(c);
-	return (ret + 1);
+	i = 0;
+	while (s[i])
+	{
+		s[i] = ft_tolower(s[i]);
+		i++;
+	}
+	return (s);
 }

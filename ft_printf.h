@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:46:07 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/17 17:09:06 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/17 17:19:54 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int				ft_check_flags(const char *s, int i, t_flags *flags,
 int				ft_check(char *s, va_list args);
 char			*ft_baseall(unsigned long long n, int base, int up);
 int				ft_width(int width, int leng, int zero);
-char			*ft_u_itoa(unsigned int n);
+char			*ft_itoa_u(unsigned int n);
 int				ft_conversion(int c, t_flags flags, va_list args);
 int				ft_conversion_char(int c, t_flags flags);
 int				ft_conversion_string(char *str, t_flags flags);

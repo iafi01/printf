@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:43:00 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/17 17:10:38 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/17 17:12:47 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ int		ft_check(char *s, va_list args)
 	}
 	return (num);
 }
-
 
 int		ft_printf(const char *str, ...)
 {
