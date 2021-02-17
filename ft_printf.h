@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:46:07 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/13 15:02:36 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/17 09:22:03 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,15 @@ typedef struct s_flags
     int star;
     int minus;
 } t_flags;
+
+typedef struct s_int
+{
+    int count;
+    int len;
+    int minus;
+    int neg;
+    int flag;
+} t_int;
 
 int     ft_printf(const char *fix, ...);
 int     ft_is_flags(int c);

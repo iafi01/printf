@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:11 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/11 13:02:09 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/16 17:57:46 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,63 @@ int ft_conversion_unsigned(int c, t_flags flags)
     int count;
     char *str;
     int len;
-    //use itoa and convert it for spaces
-    str = ft_u_itoa(c);
-    len = ft_strlen(str);
+    int neg;
+    int flag;
+    
+    flag = 0;
+    neg = 0;
     count = 0;
-    if (flags.minus == 1)
-        ft_putstr(str);
-    while (flags.width - len > 0)
+    if (c < 0)
     {
-        ft_putchar(' ');
-        flags.width--;
-        count++;
+        c *= -1;
+        neg = -1;
+    }
+    str = ft_itoa(c);
+    len = ft_strlen(str);
+    if (flags.precision == 0 && c == 0)
+    {
+        str = ft_strdup("");
+        count = ft_width(flags.width, 0, flags.zero);
+        return (count);
+    }
+    if (flags.minus == 1)
+    {
+        if (neg < 0)
+        {
+            ft_putchar('-');
+            flag = 1;
+        }
+        count += ft_width(flags.precision, len, 1);
+        ft_putstr(str);
+    }
+    if (flags.zero > 0)
+        if (flags.precision < len && flags.precision > 0)
+            flags.zero = 0;
+    if (flags.precision > len)
+    {
+            if (neg < 0 && flag == 0 && flags.width <= flags.precision)
+            {
+                ft_putchar('-');
+                flag = 1;
+            }
+        count = ft_width(flags.width + neg, flags.precision, flags.width <= flags.precision );  
+    }
+    else if (flags.precision <= len)
+    {
+        if (flags.zero)
+            if (neg < 0 && flag == 0)
+            {
+                ft_putchar('-');
+                flag = 1;
+            }
+        count = ft_width(flags.width + neg, len + count, flags.zero);
     }
     if (flags.minus == 0)
+    {
+        if (neg < 0 && flag == 0)
+            ft_putchar('-');
+        ft_width(flags.precision, len, 1);
         ft_putstr(str);
+    }
     return (count + len);
 }

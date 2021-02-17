@@ -6,74 +6,80 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:11 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/16 17:39:25 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/17 09:50:16 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+t_int ft_init_int(void)
+{
+    t_int i;
+
+    i.neg = 0;
+    i.flag = 0;
+    i.count = 0;
+    i.len = 0;
+    return (i);
+}
+
 int ft_conversion_integer(int c, t_flags flags)
 {
-    int count;
+    t_int i;
+    i = ft_init_int();
     char *str;
-    int len;
-    int neg;
-    int flag;
     
-    flag = 0;
-    neg = 0;
-    count = 0;
+    
     if (c < 0)
     {
         c *= -1;
-        neg = -1;
+        i.neg = -1;
     }
     str = ft_itoa(c);
-    len = ft_strlen(str);
+    i.len = ft_strlen(str);
     if (flags.precision == 0 && c == 0)
     {
         str = ft_strdup("");
-        count = ft_width(flags.width, 0, flags.zero);
-        return (count);
+        return(ft_width(flags.width, 0, flags.zero));
     }
     if (flags.minus == 1)
     {
-        if (neg < 0)
+        if (i.neg < 0)
         {
             ft_putchar('-');
-            flag = 1;
+            i.flag = 1;
         }
-        count += ft_width(flags.precision, len, 1);
+        i.count += ft_width(flags.precision, i.len, 1);
         ft_putstr(str);
     }
     if (flags.zero > 0)
-        if (flags.precision < len && flags.precision > 0)
+        if (flags.precision < i.len && flags.precision > 0)
             flags.zero = 0;
-    if (flags.precision > len)
+    if (flags.precision > i.len)
     {
-            if (neg < 0 && flag == 0 && flags.width <= flags.precision)
+            if (i.neg < 0 && i.flag == 0 && flags.width <= flags.precision)
             {
                 ft_putchar('-');
-                flag = 1;
+                i.flag = 1;
             }
-        count = ft_width(flags.width + neg, flags.precision, flags.width <= flags.precision );  
+        i.count = ft_width(flags.width + i.neg, flags.precision, flags.width <= flags.precision );  
     }
-    else if (flags.precision <= len)
+    else if (flags.precision <= i.len)
     {
         if (flags.zero)
-            if (neg < 0 && flag == 0)
+            if (i.neg < 0 && i.flag == 0)
             {
                 ft_putchar('-');
-                flag = 1;
+                i.flag = 1;
             }
-        count = ft_width(flags.width + neg, len + count, flags.zero);
+        i.count = ft_width(flags.width + i.neg, i.len + i.count, flags.zero);
     }
     if (flags.minus == 0)
     {
-        if (neg < 0 && flag == 0)
+        if (i.neg < 0 && i.flag == 0)
             ft_putchar('-');
-        ft_width(flags.precision, len, 1);
+        ft_width(flags.precision, i.len, 1);
         ft_putstr(str);
     }
-    return (count + len);
+    return (i.count + i.len);
 }
