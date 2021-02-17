@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:11 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/17 15:57:46 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/17 16:13:39 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int ft_conversion_integer(int c, t_flags flags)
     
     ft_first(flags, &i, str);
     if (flags.zero > 0)
-        if (flags.precision < i.len && flags.precision > 0)
+        if (flags.precision <= i.len && flags.precision > 0)
             flags.zero = 0;
     ft_second(flags, &i);
     ft_third(flags, &i, str);
