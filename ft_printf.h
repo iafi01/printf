@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:46:07 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/17 11:41:53 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/17 12:03:06 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_int
 } t_int;
 
 t_int   ft_init_int(void);
-char *ft_lowercase(char *s);
+char    *ft_lowercase(char *s);
 char	*ft_itoa_u(unsigned int n);
 int     ft_printf(const char *fix, ...);
 int     ft_is_flags(int c);

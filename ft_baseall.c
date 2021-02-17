@@ -6,20 +6,18 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 15:46:04 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/09 10:07:58 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/17 13:27:13 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char *ft_base(unsigned long long n, char *ret, int base, int count, int up)
+static char *ft_base(unsigned long long n, char *ret, int base, int count)
 {
     while (n != 0)
     {
         if (n % base < 10)
             ret[count - 1] = (n % base) + '0';
-        else if (n % base > 10 && up == 0)
-            ret[count - 1] = (n % base) + 87;
         else
             ret[count - 1] = (n % base) + 55;
         n /= base;
@@ -46,6 +44,8 @@ char *ft_baseall(unsigned long long n, int base, int up)
     if (!(ret = malloc(sizeof(char) * ((count) + 1))))
         return (0);
     ret[count] = '\0';
-    ret = ft_base(nb, ret, base, count, up);
+    ret = ft_base(nb, ret, base, count);
+    if (up == 0)
+        ret = ft_lowercase(ret);
     return (ret);
 }
