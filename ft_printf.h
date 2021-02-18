@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 16:46:07 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/18 15:56:38 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/18 18:52:04 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct	s_int
 	int			minus;
 	int			neg;
 	int			flag;
+	int			cn;
 }				t_int;
 
 t_int			ft_init_int(void);

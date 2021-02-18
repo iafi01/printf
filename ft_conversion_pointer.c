@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:11 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/18 10:24:54 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/18 18:53:14 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,5 @@ int		ft_conversion_pointer(unsigned long long c, t_flags flags)
 	count += ft_width(flags.width, len, 0);
 	if (flags.minus == 0)
 		count += ft_putstr(pointer);
-	
 	return (count);
 }
