@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 13:39:11 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/18 18:52:18 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/18 19:09:34 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,9 @@ int			ft_conversion_integer(int c, t_flags flags)
 {
 	t_int	i;
 	char	*str;
+	int 	cn;
 
+	cn = 0;
 	i = ft_init_int();
 	if (c == -2147483648)
 		i.flag = 1;
@@ -105,11 +107,11 @@ int			ft_conversion_integer(int c, t_flags flags)
 		str = ft_strdup("");
 		return (ft_width(flags.width, 0, flags.zero));
 	}
-	i.cn += ft_first(flags, &i, str);
+	cn += ft_first(flags, &i, str);
 	if (flags.zero > 0)
 		if (flags.precision <= i.len && flags.precision > 0)
 			flags.zero = 0;
-	i.cn += ft_second(flags, &i);
-	i.cn += ft_third(flags, &i, str);
-	return (i.count + i.cn);
+	cn += ft_second(flags, &i);
+	cn += ft_third(flags, &i, str);
+	return (i.count + cn);
 }
