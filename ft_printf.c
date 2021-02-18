@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:43:00 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/17 17:12:47 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/02/18 17:53:08 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,3 +93,8 @@ int		ft_printf(const char *str, ...)
 	free(s);
 	return (num);
 }
+/*#include <stdio.h>
+int main()
+{
+	printf("%d",ft_printf("%0-3.7d", -2375));
+}*/
